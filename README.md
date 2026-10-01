@@ -7,14 +7,14 @@
 </div>
 
 <p>
-I’m a sophomore at Penn studying Computer Engineering — focused on embedded systems, edge AI, and ML hardware. My favorite coding language is C++, and I like figuring out why things are slow.
+I’m a sophomore at Penn studying Computer Engineering — focused on ML, embedded systems and edge AI. My favorite coding language is C++, and I like figuring out why things are slow.
 </p>
 
 <p>
 I’m an Open Dreams Scholar. I grew up in Cameroon, where I studied the sciences in high school. I spend a lot of my time teaching and mentoring others in STEM and working on projects with them, because other people did that for me.
 </p>
 
-> I’m not an AI advocate, but I do enjoy learning about it and understanding how it works.
+
 
 ---
 ### What I’m doing now
