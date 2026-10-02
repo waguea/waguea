@@ -55,7 +55,7 @@ const Header = ({ loader }: HeaderProps) => {
           </Button>
         </Link>
 
-        <FunnyThemeToggle className="w-6 h-6 mr-4 hidden md:flex" />
+        <FunnyThemeToggle className="w-6 h-6 mr-4 hidden" />
         {isHome && process.env.NEXT_PUBLIC_WS_URL && <OnlineUsers />}
         <Button
           variant={"ghost"}
