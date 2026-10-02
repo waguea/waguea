@@ -1,0 +1,3 @@
+Lately I’ve realized that the part of computing I enjoy most is understanding what is happening underneath the software — how processors move data, how memory is organized, where latency comes from, and why different architectures behave the way they do.
+
+I’ve been building a Verilog DMA controller that started as a simple memory copy engine and grew into a design with pipelined buffering, programmable source and destination registers, descriptor-based transfers, status and interrupt signaling, and an AXI-Lite-style control interface. I’ve also been writing testbenches to verify repeated transfers and controller behavior in simulation.

@@ -89,6 +89,8 @@ const brand = (title: string, file: string): Skill => ({
 });
 const PROJECT_SKILLS = {
   cpp: chip("C++"),
+  verilog: chip("Verilog"),
+  make: chip("Make"),
   python: brand("Python", "python-mono.svg"),
   windows: chip("WinAPI"),
   webview: chip("Wv2"),
@@ -140,6 +142,7 @@ const FILEPEEK_IMG = "/assets/projects/filepeek.jpeg";
 const TWEET_IMG = "/assets/projects/tweet.jpeg";
 const RESEARCH_IMG = "/assets/projects/research.jpeg";
 const RANDOM_IMG = "/assets/projects/random.jpeg";
+const DMA_IMG = "/assets/projects/dma.jpeg";
 const projects: Project[] = [
   {
     id: "filepeek",
@@ -151,8 +154,8 @@ const projects: Project[] = [
       frontend: [PROJECT_SKILLS.cpp, PROJECT_SKILLS.windows, PROJECT_SKILLS.webview],
       backend: [PROJECT_SKILLS.python, PROJECT_SKILLS.nvidia],
     },
-    live: "https://wagueacarinetech-hue.github.io/File-Peek/",
-    github: "https://github.com/wagueacarinetech-hue/File-Peek",
+    live: "https://waguea.github.io/File-Peek/",
+    github: "https://github.com/waguea/File-Peek",
     get content() {
       return (
         <div>
@@ -254,7 +257,7 @@ const projects: Project[] = [
       backend: [PROJECT_SKILLS.git],
     },
     live: "#",
-    github: "https://github.com/wagueacarinetech-hue/duplicate-file-finder",
+    github: "https://github.com/waguea/duplicate-file-finder",
     get content() {
       return (
         <div>
@@ -290,3 +293,54 @@ const projects: Project[] = [
   },
 ];
 export default projects;
+
+const hardwareProjects: Project[] = [
+  {
+    id: "vlsi-dma",
+    category: "Hardware • Verilog",
+    title: "Pipelined Streaming DMA Engine",
+    src: DMA_IMG,
+    screenshots: [],
+    skills: {
+      frontend: [PROJECT_SKILLS.verilog, PROJECT_SKILLS.cpp],
+      backend: [PROJECT_SKILLS.make],
+    },
+    live: "#",
+    github: "https://github.com/waguea/VLSI_DMA_PROJECT",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-2xl text-center">
+            A Verilog DMA prototype for moving blocks of data between memory locations.
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            Started from a simple sequential memory copy, then grew into a
+            pipelined engine with controller logic, programmable registers,
+            descriptor-based transfers, and an AXI-Lite-style interface. The
+            DMA is configured with a source address, destination address, and
+            transfer length — then moves the data and reports status with busy,
+            done, irq, and error signals.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">What&apos;s inside</TypographyH3>
+          <p className="font-mono mb-2">
+            Pipelined memory copy, ping-pong buffering, programmable burst
+            size, address increment mode, descriptor queue support, repeated
+            transfers, a C++ driver model, and a Verilog testbench for every
+            RTL module — all simulated with Icarus Verilog (`make sim`).
+          </p>
+          <SlideShow images={[DMA_IMG]} />
+          <TypographyH3 className="my-4 mt-8">Honest status</TypographyH3>
+          <p className="font-mono mb-2">
+            It works in simulation and the testbenches check data integrity,
+            completion, interrupts, and descriptors. Not yet on FPGA — no
+            measured timing, resource usage, or hardware throughput yet. Next:
+            synthesis, BRAM testing on real hardware, then a reusable DMA block
+            for small FPGA systems.
+          </p>
+        </div>
+      );
+    },
+  },
+];
+export { hardwareProjects };

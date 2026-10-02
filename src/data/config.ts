@@ -27,7 +27,7 @@ const config = {
   site: "",
 
   // for github stars button
-  githubUsername: "wagueacarinetech-hue",
+  githubUsername: "waguea",
   githubRepo: "waguea",
 
   get ogImg() {
@@ -40,7 +40,7 @@ const config = {
     linkedin: "https://www.linkedin.com/in/fongangcarine",
     instagram: "",
     facebook: "",
-    github: "https://github.com/wagueacarinetech-hue",
+    github: "https://github.com/waguea",
   },
 };
 export { config };

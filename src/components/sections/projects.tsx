@@ -11,7 +11,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
-import projects, { Project } from "@/data/projects";
+import projects, { hardwareProjects, Project } from "@/data/projects";
 import { SectionHeader } from "./section-header";
 
 import SectionWrapper from "../ui/section-wrapper";
@@ -25,6 +25,14 @@ const ProjectsSection = () => {
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
+      </div>
+      <div className="mt-20">
+        <SectionHeader id="hardware-projects" title="Hardware Projects" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {hardwareProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </div>
     </SectionWrapper>
   );
