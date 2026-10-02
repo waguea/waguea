@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
       // internal component playground — not part of the site
-      disallow: ["/api/", "/components", "/components1", "/components2", "/components3", "/components-mono"],
+      disallow: ["/api/", "/admin", "/components", "/components1", "/components2", "/components3", "/components-mono"],
     },
     sitemap: `${base}/sitemap.xml`,
     host: base,
