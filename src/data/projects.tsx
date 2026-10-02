@@ -314,12 +314,19 @@ const hardwareProjects: Project[] = [
             A Verilog DMA prototype for moving blocks of data between memory locations.
           </TypographyP>
           <TypographyP className="font-mono ">
-            Started from a simple sequential memory copy, then grew into a
-            pipelined engine with controller logic, programmable registers,
-            descriptor-based transfers, and an AXI-Lite-style interface. The
-            DMA is configured with a source address, destination address, and
-            transfer length — then moves the data and reports status with busy,
-            done, irq, and error signals.
+            Lately I&apos;ve realized that the part of computing I enjoy most is
+            understanding what is happening underneath the software — how
+            processors move data, how memory is organized, where latency comes
+            from, and why different architectures behave the way they do.
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            I&apos;ve been building a Verilog DMA controller that started as a
+            simple memory copy engine and grew into a design with pipelined
+            buffering, programmable source and destination registers,
+            descriptor-based transfers, status and interrupt signaling, and an
+            AXI-Lite-style control interface. I&apos;ve also been writing
+            testbenches to verify repeated transfers and controller behavior
+            in simulation.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
           <TypographyH3 className="my-4 mt-8">What&apos;s inside</TypographyH3>
