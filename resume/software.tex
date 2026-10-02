@@ -1,0 +1,178 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\geometry{left=0.55in,right=0.55in,top=0.40in,bottom=0.40in}
+\pagestyle{empty}
+\urlstyle{same}
+\raggedright
+\raggedbottom
+\setlength{\tabcolsep}{0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\titleformat{\section}
+{\normalfont\normalsize\bfseries\scshape}
+{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+\newcommand{\resumeItem}[1]{\item \small{#1}}
+\newcommand{\resumeSubheading}[4]{
+\item \begin{tabularx}{\linewidth}{@{}X r@{}}
+\textbf{#1} & \small #2 \\
+\textit{\small #3} & \textit{\small #4}
+\end{tabularx}\vspace{-2pt}
+}
+\newcommand{\resumeProject}[3]{
+\item \begin{tabularx}{\linewidth}{@{}X r@{}}
+\small\textbf{#1} $|$ \small\emph{#2} & \small #3
+\end{tabularx}\vspace{-2pt}
+}
+\newcommand{\resumeSubHeadingListStart}{
+\begin{itemize}[
+leftmargin=0pt,label={},itemsep=2pt,
+topsep=2pt,parsep=0pt,partopsep=0pt
+]
+}
+\newcommand{\resumeSubHeadingListEnd}{
+\end{itemize}\vspace{2pt}
+}
+\newcommand{\resumeItemListStart}{
+\begin{itemize}[
+leftmargin=0.18in,label=\textbullet,
+itemsep=1pt,topsep=1pt,parsep=0pt,partopsep=0pt
+]
+}
+\newcommand{\resumeItemListEnd}{
+\end{itemize}\vspace{1pt}
+}
+\begin{document}
+% ==================== HEADER ====================
+\begin{center}
+{\huge\textbf{Waguea Carine Fongang}} \\[3pt]
+\small (215) 252-0199 $|$
+\href{mailto:fongang7@engineering.upenn.edu}
+{fongang7@engineering.upenn.edu} $|$
+\href{https://www.linkedin.com/in/fongangcarine}
+{\underline{LinkedIn}} $|$
+\href{https://github.com/waguea}
+{\underline{GitHub}}
+\end{center}
+\vspace{-12pt}
+% ==================== EDUCATION ====================
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{University of Pennsylvania}
+{Philadelphia, PA}
+{B.S.E. in Computer Engineering}
+{Expected May 2029}
+\resumeItemListStart
+\resumeItem{
+\textbf{Relevant Coursework:} Data Structures \& Algorithms, Programming Languages \& Techniques I/II, Mathematical Foundations of Computer Science, Introduction to Computer Systems, Electrical Circuits and Systems
+}
+\resumeItem{
+\textbf{Honors \& Programs:} Africanist Award (African Leadership Academy); AI4ALL Ignite Fellow; CodePath Technical Interview Prep Fellow
+}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+% ==================== SOFTWARE SKILLS ====================
+\section{Technical Skills}
+{\small
+\textbf{Languages:} Python, JavaScript/TypeScript, Java, C++, C, OCaml, SQL, Bash, R \\[2pt]
+\textbf{Frameworks \& Tools:} PyTorch, OpenCV, Streamlit, React, Next.js, Git, Linux/Unix, Firebase, Google Cloud, Snakemake, LSF
+}
+% ==================== EXPERIENCE ====================
+\section{Experience}
+\resumeSubHeadingListStart
+% JOYNET
+\resumeSubheading
+{JoyNet -- SAFELab, University of Pennsylvania}
+{September 2026 -- December 2026}
+{Software Engineer (Fall 2026)}
+{Remote}
+\resumeItemListStart
+\resumeItem{
+Part-time Software Engineer on a social platform for positive short-form video, part of SAFELab at UPenn, working directly alongside the founder on day-to-day product development across the stack.
+}
+\resumeItemListEnd
+% LOGSDON LAB
+\resumeSubheading
+{Logsdon Lab, University of Pennsylvania}
+{June 2026 -- August 2026}
+{Research Assistant}
+{Philadelphia, PA}
+\resumeItemListStart
+\resumeItem{
+Built an automated \textbf{Python/Bash pipeline} to measure disease-linked DNA repeat copy number across \textbf{139 diverse human genome assemblies}, including the first characterization of understudied African populations, orchestrating parallel analyses on an HPC cluster using LSF and Snakemake.
+}
+\resumeItem{
+Developed \textbf{RepeatContact}, a Python signal-processing tool that counts DNA repeats directly from raw Nanopore electrical signals using Dynamic Time Warping and Fourier analysis; evaluated its behavior using simulated genomic data.
+}
+\resumeItem{
+Identified a \textbf{31\% systematic discrepancy} between two DNA repeat-counting methods; implemented a third, independently anchored validation approach to investigate the difference.
+}
+\resumeItemListEnd
+% NETTER CENTER
+\resumeSubheading
+{Netter Center for Community Partnerships, University of Pennsylvania}
+{April 2026 -- Present}
+{Website Support Associate}
+{Philadelphia, PA}
+\resumeItemListStart
+\resumeItem{
+Maintain \textbf{three production websites} supporting a network of \textbf{300 universities and 1,200+ community partners}, managing technical updates and public-facing content.
+}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+% ==================== PROJECTS ====================
+\section{Projects}
+\resumeSubHeadingListStart
+% FILEPEEK
+\resumeProject
+{\href{https://waguea.github.io/File-Peek/}
+{\underline{FilePeek}}}
+{C++, Python, Windows API, NVIDIA Nemotron}
+{August 2026}
+\resumeItemListStart
+\resumeItem{
+Built a \textbf{native C++ Windows application} integrating with File Explorer to generate AI-powered summaries across \textbf{8 file formats}, allowing users to inspect files without opening them.
+}
+\resumeItem{
+Designed an asynchronous C++/Python architecture with file-aware caching; reduced average cold-summary latency by \textbf{28.6\%} (\textbf{12.92s to 9.22s}).
+}
+\resumeItemListEnd
+% AI TWEET DETECTION
+\resumeProject
+{\href{https://amgazal.github.io/Machine-Learning-project-22D/}
+{\underline{AI Tweet Detection}}}
+{Python, BERT, Logistic Regression, Streamlit}
+{May 2026 -- July 2026}
+\resumeItemListStart
+\resumeItem{
+Co-developed a \textbf{machine learning application} distinguishing AI-generated tweets from human-written text; implemented a Logistic Regression baseline and fine-tuned BERT for binary classification.
+}
+\resumeItem{
+Achieved \textbf{92.1\% accuracy} and a \textbf{0.930 F1-score}; deployed a Streamlit application for live classification.
+}
+\resumeItemListEnd
+% WONDERLY
+\resumeProject
+{Wonderly -- HackMIT 2026}
+{Python, OpenCV, Computer Vision}
+{September 2026}
+\resumeItemListStart
+\resumeItem{
+Co-developed an \textbf{AI-powered art-education prototype}; led \textbf{computer vision development} with image capture, scene scanning, blur detection, duplicate-frame filtering, and edge/contour extraction.
+}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+% ==================== STUDENT INVOLVEMENT ====================
+\section{Student Involvement}
+{\small
+\textbf{Wharton Undergraduate Data Analytics Club} $|$ Rewriting the Code $|$ Computer Science Society $|$ National Society of Black Engineers (NSBE) $|$ ColorStack
+}
+\end{document}
