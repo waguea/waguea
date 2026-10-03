@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/tooltip";
 import { usePreloader } from "../preloader";
 import { BlurIn, BoxReveal } from "../reveal-animations";
-import ScrollDownIcon from "../scroll-down-icon";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { config } from "@/data/config";
 
@@ -177,9 +176,6 @@ const HeroSection = () => {
             </BlurIn>
           )}
         </div>
-      </div>
-      <div className="absolute bottom-10 left-[50%] translate-x-[-50%]">
-        <ScrollDownIcon />
       </div>
     </SectionWrapper>
   );
