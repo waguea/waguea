@@ -84,7 +84,7 @@ export default function BlogListClient({ posts }: { posts: Post[] }) {
             <span className="text-[hsl(20,100%,70%)]">Notes</span>
           </h1>
           <p className="mt-6 text-muted-foreground text-lg max-w-lg leading-relaxed font-sans">
-            Quick logs from whatever I&apos;m building, plus longer write-ups when there&apos;s more to say.
+            Notes on building things, breaking things, and occasionally writing about it.
           </p>
 
           {/* Blog / Log filter */}

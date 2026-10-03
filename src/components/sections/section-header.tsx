@@ -6,7 +6,7 @@ import { ReactNode } from "react"
 export const SectionHeader = ({ id, title, desc, className }: { id: string, title: string | ReactNode, desc?: string, className?: string }) => {
   return (
 
-    <div className={cn("top-[70px] sticky mb-96", className)}>
+    <div className={cn("top-[70px] sticky mb-96 z-20 bg-background/85 backdrop-blur-md py-6 -mx-4 px-4", className)}>
       <Link href={`#${id}`}>
         <BoxReveal width="100%">
           <h2

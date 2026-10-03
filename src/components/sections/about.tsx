@@ -54,6 +54,14 @@ const AboutSection = () => {
                 Leadership Program hosted by Chevron x ALA (African Leadership
                 Academy).
               </p>
+              <div className="flex flex-wrap gap-2">
+                <Badge
+                  variant="secondary"
+                  className="font-mono text-xs font-normal"
+                >
+                  Open Dreams Scholar
+                </Badge>
+              </div>
               <div>
                 <p className="mb-2 text-sm font-semibold tracking-wide text-foreground/80 uppercase">
                   Coursework so far

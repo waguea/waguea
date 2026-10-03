@@ -404,12 +404,12 @@ export const EXPERIENCE: Experience[] = [
   {
     id: 4,
     startDate: "Jan 2026",
-    endDate: "May 2026",
+    endDate: "Present",
     title: "Course Instructor",
     company: "Fife-Penn STEM & CS Academy",
     description: [
-      "Taught Python, Scratch, and web development to K-8 students in Philadelphia through Penn Engineering's free after-school program.",
-      "Built curriculum and mentored students in computational thinking and problem-solving.",
+      "Teaching robotics, Python, Scratch, and web development to K-8 students in Philadelphia through Penn Engineering's free after-school program.",
+      "Building curriculum and mentoring students in computational thinking and problem-solving.",
     ],
     skills: [SkillNames.PYTHON, SkillNames.TYPESCRIPT, SkillNames.GIT],
   },

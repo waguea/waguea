@@ -21,13 +21,21 @@ const ProjectsSection = () => {
   return (
     <SectionWrapper id="projects" className="max-w-7xl mx-auto md:min-h-[130vh] px-4">
       <SectionHeader id="projects" title="Projects" />
+      <h3 className="mb-8 text-center font-display text-xl md:text-2xl font-bold text-foreground/80">
+        Software
+      </h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
       <div className="mt-20">
-        <SectionHeader id="hardware-projects" title="Hardware Projects" />
+        <h3
+          id="hardware-projects"
+          className="mb-8 text-center font-display text-xl md:text-2xl font-bold text-foreground/80 scroll-mt-24"
+        >
+          Hardware
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {hardwareProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
