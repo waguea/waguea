@@ -311,6 +311,9 @@ const hardwareProjects: Project[] = [
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
+            Pipelined Streaming DMA Engine
+          </TypographyP>
+          <TypographyP className="font-mono ">
             A Verilog DMA prototype for moving blocks of data between memory locations.
           </TypographyP>
           <TypographyP className="font-mono ">
@@ -320,31 +323,25 @@ const hardwareProjects: Project[] = [
             from, and why different architectures behave the way they do.
           </TypographyP>
           <TypographyP className="font-mono ">
-            I&apos;ve been building a Verilog DMA controller that started as a
-            simple memory copy engine and grew into a design with pipelined
-            buffering, programmable source and destination registers,
-            descriptor-based transfers, status and interrupt signaling, and an
-            AXI-Lite-style control interface. I&apos;ve also been writing
-            testbenches to verify repeated transfers and controller behavior
-            in simulation.
+            I started this project as a simple memory copy engine and gradually
+            extended it with pipelined buffering, programmable source and
+            destination registers, descriptor-based transfers, status and
+            interrupt signaling, and an AXI-Lite-style control interface.
+            I&apos;ve also been writing testbenches to verify repeated
+            transfers and controller behavior in simulation.
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            Right now, the design is simulation-verified. My next step is to
+            synthesize it, test it with BRAM on real hardware, and compare the
+            hardware behavior against the simulation.
+          </TypographyP>
+          <TypographyP className="font-mono ">
+            Long term, I want to turn it into a reusable DMA block that other
+            hardware developers can integrate into their own systems when they
+            need repeated or bulk data movement.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">What&apos;s inside</TypographyH3>
-          <p className="font-mono mb-2">
-            Pipelined memory copy, ping-pong buffering, programmable burst
-            size, address increment mode, descriptor queue support, repeated
-            transfers, a C++ driver model, and a Verilog testbench for every
-            RTL module — all simulated with Icarus Verilog (`make sim`).
-          </p>
           <SlideShow images={[DMA_IMG]} />
-          <TypographyH3 className="my-4 mt-8">Honest status</TypographyH3>
-          <p className="font-mono mb-2">
-            It works in simulation and the testbenches check data integrity,
-            completion, interrupts, and descriptors. Not yet on FPGA — no
-            measured timing, resource usage, or hardware throughput yet. Next:
-            synthesis, BRAM testing on real hardware, then a reusable DMA block
-            for small FPGA systems.
-          </p>
         </div>
       );
     },
