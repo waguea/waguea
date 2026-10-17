@@ -110,7 +110,7 @@ const components = {
   ),
   img: (props: any) => (
     <img
-      className="w-20 md:w-24 rounded-lg border border-border/50 shadow-sm my-6"
+      className="w-12 md:w-14 rounded-lg border border-border/50 shadow-sm my-6"
       loading="lazy"
       {...props}
     />
