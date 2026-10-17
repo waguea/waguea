@@ -1,0 +1,81 @@
+---
+title: "The Pain and Sweetness of Building Things"
+publishedAt: "2026-10-17"
+summary: "An embedded microphone, a botched soldering job, board hopping, and what a bad mic taught me about debugging — plus some notes on MCUNet and DMA."
+author: "Waguea Carine Fongang"
+kind: "blog"
+---
+
+# The Pain and Sweetness of Building Things
+
+I've been trying to carve out dedicated build time outside of my studies, and honestly, it can be tedious.
+
+I'm taking four classes this semester: CIS 2400, ESE 2150, and two non-technical classes. In my head, that should leave me with enough time to actually build things. There are other things going on, but we have to make time.
+
+Except engineering has a funny way of reminding you that having time to build and actually getting something to work are two very different things.
+
+My latest project has been an embedded microphone. And let me tell you, this thing has tested me.
+
+First, I messed up the soldering. Now, I know what you're thinking. A soldering mistake? For an engineering student? Embarrassing. But trust me, I am one of the best solderers you can find out there right now. We all have our character development moments.
+
+Then came the denial.
+
+I kept convincing myself that the microphone was still in good condition. Surely, it couldn't be the hardware. Maybe it was my code. Maybe the measurements were wrong. Maybe I just needed to run one more sanity check.
+
+So I did. Measurement after measurement. Check after check. I spent a substantial amount of time trying to prove that the microphone was fine instead of seriously considering that it might not be.
+
+Eventually, I got a new microphone.
+
+And guess what? That was supposed to be the part where everything magically worked.
+
+It didn't.
+
+I got stuck debugging the setup and switching between boards. At some point, I even pulled out an **STM32 NUCLEO-F446RE**, a board sitting in my collection that I honestly don't even remember why I bought. Compared with the Arduino Unos and Raspberry Pis I'd worked with, it felt like a serious upgrade in processing power and available resources.
+
+Of course, that came with its own challenges. There was setup, configuration, boot time, and a whole new set of things to figure out. Everything seemed to take forever. It was frustrating.
+
+I switched things around. I tried another approach. I even got an ESP32.
+
+Still, things weren't working the way I wanted.
+
+At some point, I just had to accept that the original microphone was probably bad and stop fighting that battle so I could move forward with a new one.
+
+And that's where I am now: the project is done, with documentation and a few finishing touches left.
+
+## In Between All the Debugging, I Read a Lot
+
+Funny enough, I also ended up reading a lot throughout this process.
+
+One of my favorite papers I've read is [MCUNet](https://arxiv.org/pdf/2007.10319), and surprisingly, my favorite part wasn't the neural architecture search. It was realizing how much of TinyML comes down to **the lifetime of data**.
+
+On a microcontroller, it's not enough to ask how many operations a model needs or even how large its weights are. The real question is: *at the worst moment during inference, what has to exist in SRAM at the same time?*
+
+A layer can be computationally cheap and still make the model impossible to run because its intermediate activations blow up peak memory.
+
+I found that much more interesting than simply asking how to make a model smaller. It turns inference into almost a scheduling problem: deciding what needs to exist, when, and for how long.
+
+I like coming across ideas like this because they make me look at engineering problems differently. There's so much happening beneath the surface of something that might seem simple from the outside, and I want to understand more of it.
+
+## Wait, Microcontrollers Have DMA Too?
+
+Funny enough, I also ended up diving deeper into microcontroller architecture.
+
+For a long time, microcontrollers had been almost plug-and-play for me. I'd use them to get things working, write some code, connect my peripherals, and move on. But then I started looking at what was actually happening inside them.
+
+And yes, microcontrollers have DMA too.
+
+If you saw my last project, I actually built and tested a DMA controller myself, so seeing DMA show up again here was veryyyyy satisfying.
+
+In the embedded mic project, I use DMA at the microphone-capture stage. The I²S audio keeps arriving, and DMA moves those samples into memory while the CPU is free to spend its time on resampling, RNNoise inference, and the rest of the audio pipeline.
+
+It's also made me more curious about the layers of abstraction I usually take for granted.
+
+Despite all the debugging, I enjoyed the process. Maybe not every second of it, but enough to know that I want to keep doing this.
+
+I still have a lot to learn, and I want to get better at documenting my projects, not just building them.
+
+I'm also genuinely loving CIS 2400.
+
+For now, I'm glad to have this project behind me. I'm calling it a win.
+
+**Documentation left. Then on to the next thing...**
