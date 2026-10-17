@@ -108,6 +108,13 @@ const components = {
   strong: (props: any) => (
     <strong className="text-foreground font-semibold" {...props} />
   ),
+  img: (props: any) => (
+    <img
+      className="w-36 md:w-44 rounded-lg border border-border/50 shadow-sm my-6"
+      loading="lazy"
+      {...props}
+    />
+  ),
 };
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
