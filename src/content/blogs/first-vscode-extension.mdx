@@ -38,15 +38,8 @@ Here's the honest version:
 - **Predictable memory ceiling.** The streaming CLI peaks at roughly **5.7 MiB** on a 1 GiB file. The Node version needed about **144 MiB**. This was the main reason.
 - **Explicit streaming I/O.** I scan in **64 KiB** chunks, handle matches that cross chunk boundaries, write output atomically, and can add `mmap` later without rethinking the design.
 - **Fine-grained cancellation and progress.** The engine checks for cancellation every **16 KiB** during literal scans, and between regex matches.
-- **Deterministic algorithms.** BMH, KMP, naive search, and `std::search` are all implemented and benchmarked directly, so I can see what each one actually costs.
-- **One engine, multiple hosts.** The CLI, tests, benchmarks, and Node-API addon all share the same C++ core.
-- **RE2 for regex.** Linear-time matching without catastrophic backtracking.
-- **Tooling that catches mistakes.** CMake, ASan/UBSan, warnings-as-errors, GoogleTest, and Google Benchmark.
-- **Explicit encoding boundaries.** UTF-8 for CLI paths and UTF-16 for addon offsets are handled deliberately, not accidentally.
 
-The tradeoff is real: V8 is faster for in-memory literal search. `indexOf` hit around **907 MiB/s** in my tests, while the addon was around **680 MiB/s**. C++ wins on memory, streaming, control, and native integration, not raw in-memory speed.
-
-I like that tradeoff because it forced me to understand where the time and memory actually go, instead of assuming the runtime would handle it.
+I wanted the engine to be explicit about where the time and memory go, instead of assuming the runtime would handle it.
 
 ## What I learned
 
