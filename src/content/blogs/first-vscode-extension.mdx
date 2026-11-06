@@ -1,0 +1,54 @@
+---
+title: "I Published My First VS Code Extension!"
+publishedAt: "2026-11-06"
+summary: "I got frustrated deleting 60 lines of code one by one during a programming assignment, so I built RangeEdit — a C++ text-processing engine and VS Code extension for scanning, replacing, and deleting text in a range."
+author: "Waguea Carine Fongang"
+tags: ["vscode", "extension", "cpp"]
+kind: "blog"
+---
+
+# I Published My First VS Code Extension!
+
+![RangeEdit in VS Code](/assets/blog/pi1.png)
+
+So, I was working on a programming assignment.
+
+I had skipped the struct definition and was using definitions from space. I had also disabled the red squiggles, so I was writing a function that was already about 60 lines long before discovering that one of my so-called variables from space was not even defined.
+
+Classic.
+
+So I started deleting things. One by one. Line by line. I just wished I could delete everything I needed all at once.
+
+But anyways, I always say that when you're an engineer, you need to reduce problems wherever you can, because you have the power to solve them.
+
+And that's exactly what I did.
+
+## What I built
+
+I built **RangeEdit**, a VS Code extension that lets you scan, replace, and delete text within a selection or a specific range of lines.
+
+The idea is simple: instead of hunting through a function and editing line by line, you tell RangeEdit where to look, and it does the work across that whole range at once.
+
+What started as me being frustrated with a programming assignment turned into building a C++ text-processing engine and a VS Code extension.
+
+And now, I've published my first extension on the VS Code Marketplace.
+
+## Why a C++ engine?
+
+I could have written the whole thing in TypeScript and called it a day. But I wanted the actual text processing to live somewhere I could reason about cleanly, and C++ felt like the right tool for a problem that is fundamentally about scanning and transforming text.
+
+It also made the project more interesting to build. The extension is the interface, but the engine is where the real work happens: reading a range, finding matches, applying replacements, and deleting what needs to go without touching the rest of the file.
+
+## What I learned
+
+The biggest lesson was that the annoying part of a project is usually the part worth automating. I could have kept deleting lines manually, but instead I turned a small, recurring frustration into a tool I'll actually use again.
+
+I also learned that shipping something small is still shipping. I didn't need a massive extension with a hundred features. I needed one thing that worked, and I needed to get it out.
+
+## What's next
+
+There's still a lot I want to improve, and I want to get better at documenting my projects, not just building them.
+
+But for now, the first version is out. It started with a 60-line function and a variable that didn't exist.
+
+**hihi..we move.**
