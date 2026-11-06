@@ -9,46 +9,55 @@ kind: "blog"
 
 # I Published My First VS Code Extension!
 
-![RangeEdit in VS Code](/assets/blog/pi1.png)
+<img src="/assets/blog/pi1.png" alt="RangeEdit in VS Code" className="w-full rounded-lg border border-border/50 shadow-sm my-6" />
 
 So, I was working on a programming assignment.
 
-I had skipped the struct definition and was using definitions from space. I had also disabled the red squiggles, so I was writing a function that was already about 60 lines long before discovering that one of my so-called variables from space was not even defined.
+I had skipped the struct definition and was using definitions from space. I had also disabled the red squiggles, so I didn't notice that one of my so-called variables didn't exist until the function was already about 60 lines long.
 
 Classic.
 
-So I started deleting things. One by one. Line by line. I just wished I could delete everything I needed all at once.
+I started deleting things one by one, and all I could think was: I wish I could delete everything I need at once.
 
-But anyways, I always say that when you're an engineer, you need to reduce problems wherever you can, because you have the power to solve them.
-
-And that's exactly what I did.
+I always say that when you're an engineer, you should reduce problems wherever you can, because you have the power to solve them. So I did.
 
 ## What I built
 
-I built **RangeEdit**, a VS Code extension that lets you scan, replace, and delete text within a selection or a specific range of lines.
+**RangeEdit** is a VS Code extension that lets you scan, replace, and delete text within a selection or a specific range of lines. You tell it where to look, and it does the work across that whole range instead of making you edit line by line.
 
-The idea is simple: instead of hunting through a function and editing line by line, you tell RangeEdit where to look, and it does the work across that whole range at once.
+Under the hood, it's a C++ text-processing engine with a thin VS Code front end. The extension is the interface; the engine does the scanning and rewriting without touching the rest of the file.
 
-What started as me being frustrated with a programming assignment turned into building a C++ text-processing engine and a VS Code extension.
+It's now on the VS Code Marketplace.
 
-And now, I've published my first extension on the VS Code Marketplace.
+## Okay, but why C++?
 
-## Why a C++ engine?
+I know no one cares about peak memory and throughput numbers. Lowkey, I do. This project gave me a reason to care about them properly, and C++ made those tradeoffs explicit.
 
-I could have written the whole thing in TypeScript and called it a day. But I wanted the actual text processing to live somewhere I could reason about cleanly, and C++ felt like the right tool for a problem that is fundamentally about scanning and transforming text.
+Here's the honest version:
 
-It also made the project more interesting to build. The extension is the interface, but the engine is where the real work happens: reading a range, finding matches, applying replacements, and deleting what needs to go without touching the rest of the file.
+- **Predictable memory ceiling.** The streaming CLI peaks at roughly **5.7 MiB** on a 1 GiB file. The Node version needed about **144 MiB**. This was the main reason.
+- **Explicit streaming I/O.** I scan in **64 KiB** chunks, handle matches that cross chunk boundaries, write output atomically, and can add `mmap` later without rethinking the design.
+- **Fine-grained cancellation and progress.** The engine checks for cancellation every **16 KiB** during literal scans, and between regex matches.
+- **Deterministic algorithms.** BMH, KMP, naive search, and `std::search` are all implemented and benchmarked directly, so I can see what each one actually costs.
+- **One engine, multiple hosts.** The CLI, tests, benchmarks, and Node-API addon all share the same C++ core.
+- **RE2 for regex.** Linear-time matching without catastrophic backtracking.
+- **Tooling that catches mistakes.** CMake, ASan/UBSan, warnings-as-errors, GoogleTest, and Google Benchmark.
+- **Explicit encoding boundaries.** UTF-8 for CLI paths and UTF-16 for addon offsets are handled deliberately, not accidentally.
+
+The tradeoff is real: V8 is faster for in-memory literal search. `indexOf` hit around **907 MiB/s** in my tests, while the addon was around **680 MiB/s**. C++ wins on memory, streaming, control, and native integration, not raw in-memory speed.
+
+I like that tradeoff because it forced me to understand where the time and memory actually go, instead of assuming the runtime would handle it.
 
 ## What I learned
 
-The biggest lesson was that the annoying part of a project is usually the part worth automating. I could have kept deleting lines manually, but instead I turned a small, recurring frustration into a tool I'll actually use again.
+The annoying part of a project is usually the part worth automating. I could have kept deleting lines manually, but I turned a small, recurring frustration into something I'll use again.
 
-I also learned that shipping something small is still shipping. I didn't need a massive extension with a hundred features. I needed one thing that worked, and I needed to get it out.
+I also learned that shipping something small still counts. I didn't need a hundred features. I needed one thing that worked, and I needed to get it out.
 
 ## What's next
 
-There's still a lot I want to improve, and I want to get better at documenting my projects, not just building them.
+There's a lot I still want to improve, and I want to get better at documenting my projects, not just building them.
 
-But for now, the first version is out. It started with a 60-line function and a variable that didn't exist.
+But the first version is out. It started with a 60-line function and a variable that didn't exist.
 
 **hihi..we move.**
